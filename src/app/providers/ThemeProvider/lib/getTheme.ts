@@ -1,4 +1,4 @@
-import {LOCAL_STORAGE_THEME_KEY, Theme} from "../theme/ThemeContext";
+import {LOCAL_STORAGE_THEME_KEY, Theme} from "./ThemeContext";
 
 export const getTheme = () => {
     const theme = window?.localStorage?.getItem(LOCAL_STORAGE_THEME_KEY) as Theme
