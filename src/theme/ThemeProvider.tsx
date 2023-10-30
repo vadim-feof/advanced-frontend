@@ -1,6 +1,6 @@
 import React, {FC, useMemo, useState} from 'react';
 import {IThemeContextValues, Theme, ThemeContext} from "./ThemeContext";
-import {getTheme} from "../utils/getTheme";
+import {getTheme} from "../helpers/getTheme";
 
 export const ThemeProvider: FC = ({children}) => {
     const [theme, setTheme] = useState<Theme>(getTheme);

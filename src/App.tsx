@@ -1,17 +1,18 @@
-import React, {Suspense, useState} from 'react';
+import React, {Suspense} from 'react';
 import './styles/index.scss'
 import {NavLink, Route, Routes} from "react-router-dom";
 import {MainPageAsync} from "./pages/MainPage/MainPage.async";
 import {AboutPageAsync} from "./pages/AboutPage/AboutPage.async";
 import {useTheme} from "./theme/useTheme";
 import {Theme} from "./theme/ThemeContext";
+import {classNames} from "./helpers/classNames/classNames";
 
 const App = () => {
 
     const {theme, toggleTheme} = useTheme()
 
     return (
-        <div className={`app ${theme}`}>
+        <div className={classNames('app', {}, [theme])}>
             <label htmlFor="theme">
                 Тема:
                 <select onChange={(e) => toggleTheme(e.target.value as Theme)} id="theme" value={theme}>
