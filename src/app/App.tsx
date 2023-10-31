@@ -1,11 +1,9 @@
-import React, {Suspense} from 'react';
 import './styles/index.scss'
-import {NavLink, Route, Routes} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import {useTheme} from "@/app/providers/ThemeProvider";
-import {Theme} from "./providers/ThemeProvider/lib/ThemeContext";
+import {Theme} from "@/app/providers/ThemeProvider/lib/ThemeContext";
 import {classNames} from "@/shared/lib/classNames/classNames";
-import {MainPage} from "@/pages/MainPage";
-import {AboutPage} from "@/pages/AboutPage";
+import {AppRouter} from "@/app/providers/router";
 
 const App = () => {
 
@@ -22,12 +20,9 @@ const App = () => {
             </label>
             <NavLink to={'/'}>Главная</NavLink>
             <NavLink to={'/about'}>О сайте</NavLink>
-            <Suspense fallback={<div>Загрузка...</div>}>
-                <Routes>
-                    <Route path={'/'} element={<MainPage />}/>
-                    <Route path={'/about'} element={<AboutPage />}/>
-                </Routes>
-            </Suspense>
+            <div id={'page'}>
+                <AppRouter />
+            </div>
         </div>
     );
 };
